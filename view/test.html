@@ -1,0 +1,89 @@
+<html>
+  <head>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> 
+     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+  </head>
+
+  
+<div class="container">
+  
+<!-- <form class="form-inline">
+  <div class="form-group mb-2">
+    <label for="file" class="sr-only">Select File</label>
+    <input type="file" class="form-control-file" name='file' id="file">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="submit" class="form-control btn btn-primary" name="submit" value="submit">
+  </div>
+</form> -->
+
+<input type="file" id="file" />  
+<input type="button" id="viewfile" value="Export To Table" onclick="ExportToTable()" />  
+
+
+<script type="text/javascript">
+  
+  function ExportToT() {
+    // name=$("#file").val();
+    // var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv)$/;
+    if (typeof (FileReader) != "undefined" ) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        var csvrows = e.target.result;
+        // csvrows=csvrows.split(/\s/ig);
+        console.log(csvrows);
+      }
+      reader.readAsText($("#file")[0].files[0]);
+    } else {
+      alert("Sorry! Your browser does not support HTML5!");
+    }
+
+  }
+</script>
+
+
+  
+
+</div>
+
+   
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog pull-right">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- model ends -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+  
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+ 
+ <script>
+  $(document).ready(()=>{
+    console.log('document is ready');
+    
+  });
+    
+  function myfun(){
+    $("#myModal").modal('toggle');
+  }
+  
+  </script>
+</html>
